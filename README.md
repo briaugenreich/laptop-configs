@@ -4,7 +4,7 @@ Laptop configuration reminders for setting up a new work laptop.
 
 ## 1. Download all non project specific tools.
 - IntelliJ
-- Slack (unshovel, prism, wwcode, hubspot)
+- Slack (unshovel, prism, wwcode, new company)
 - Atom (dont forget to link to setup command line call `ln -s /Applications/Atom.app/Contents/Resources/app/atom.sh /usr/local/bin/atom`)
 - [Brew](https://brew.sh/) `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 - Spotify
