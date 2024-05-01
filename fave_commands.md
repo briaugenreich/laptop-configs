@@ -9,4 +9,5 @@ k get  cm -A  -oyaml | yq '.items[] | select(.metadata.name == "kube-managed-tab
 k get hbaseclusters -o custom-columns=':metadata.name-oyaml | xargs -n1 -I{} k get pods -lapp=hbase-uptime -n hbase-{} -lapp=hbase-uptime -o yaml | yq '.items[] | [.metadata.annotations."hubspot.com/availability-zone"] | join(";")'
  k get hbaseclusters -o custom-columns=':metadata.name' | xargs -n1 -I{}  hs-kubectl get pods -lapp=hbase-uptime -n hbase-{} -o yaml | yq '.items[] | [.metadata.annotations."hubspot.com/availability-zone"] | join(";")'
  k get hbasetable -A --no-headers | awk '{print $1,$2}' | xargs -n2  bash -c  'echo "hs-kubectl delete hbasetable $1 -n$0" '
+` for n in profiler-out{3,4,5,6,7,8}.html; do echo mv $n  ~/src/thanatos-balancer-profiling/$n; done` 
 ``` 
