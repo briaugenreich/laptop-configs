@@ -8,4 +8,5 @@ k get hbaseclusters -o yaml | yq '.items[] | select(.spec.hfileCleanerSettings.l
 k get  cm -A  -oyaml | yq '.items[] | select(.metadata.name == "kube-managed-tables") | select((.data.kubeManagedTablesCsv != "") or (.data.clusterEntirelyKubeManaged == "true")) |  .metadata.namespace' | xargs -n1 -I{} echo "hs-kubectl patch cm kube-managed-tables -n{} --patch '{"data":{"kubeManagedTablesCsv": "","clusterEntirelyKubeManaged": "false" }}'"
 k get hbaseclusters -o custom-columns=':metadata.name-oyaml | xargs -n1 -I{} k get pods -lapp=hbase-uptime -n hbase-{} -lapp=hbase-uptime -o yaml | yq '.items[] | [.metadata.annotations."hubspot.com/availability-zone"] | join(";")'
  k get hbaseclusters -o custom-columns=':metadata.name' | xargs -n1 -I{}  hs-kubectl get pods -lapp=hbase-uptime -n hbase-{} -o yaml | yq '.items[] | [.metadata.annotations."hubspot.com/availability-zone"] | join(";")'
+ k get hbasetable -A --no-headers | awk '{print $1,$2}' | xargs -n2  bash -c  'echo "hs-kubectl delete hbasetable $1 -n$0" '
 ``` 
