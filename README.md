@@ -35,30 +35,6 @@ Laptop configuration reminders for setting up a new work laptop.
 ## 7. Customize command line and profiles
 - Terminal font + color customization
 - [Git Completion](https://git-scm.com/book/id/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh) `autoload -Uz compinit && compinit` **_might not need this with oh my zsh... wait until after installed_**
-- [ZSH](https://github.com/ohmyzsh/ohmyzsh) configured
+- [ZSH](https://github.com/ohmyzsh/ohmyzsh)
+- https://gist.github.com/aamnah/b50b081a752f6e193f9202c2c445b740 
 
-
-  ```
-  zsh --version
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-  # set up in szh.rc
-  ZSH_THEME="minimal"  # or apple or robbyrussell
-
-  # install plugins https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
-
-  plugins=(
-    git
-    aws
-    docker
-  )
-
-  # fave aliases
-  alias ll='ls -la'
-  alias tf='terraform'
-  alias java8="export JAVA_HOME=$JAVA8"
-  alias java15="export JAVA_HOME=$JAVA15"
-
-  # default to Java 8
-  java8
-  ```
